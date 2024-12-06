@@ -77,6 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // "모든 메시지" 탭을 클릭하면 모든 메시지 출력
+    document.querySelector(".nav-btn[data-tab='all']").addEventListener("click", () => {
+        renderMessages("all");
+    });
+
+
     // 초기 렌더링
     renderMessages();
 });
