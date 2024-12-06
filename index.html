@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>방명록 인터페이스</title>
+  <title>방명록 2024</title>
+  <!-- Google Fonts: Poppins 추가 -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif; /* 둥근 폰트 적용 */
+      background-color: #181a1b;
+      color: #e8e8e8;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
-    <!-- 상단 네비게이션 -->
+    <!-- 헤더 -->
     <header class="header">
       <h1>방명록 2024</h1>
       <nav class="nav">
@@ -17,15 +26,25 @@
       </nav>
     </header>
 
-    <!-- 메시지 작성 -->
+    <!-- 작성 섹션 -->
     <section class="form-section">
-      <textarea id="message-input" placeholder="공유하고 싶은 생각이 있나요?" rows="4"></textarea>
+      <input type="text" id="name-input" placeholder="이름을 입력하세요" />
+      <textarea id="message-input" placeholder="메시지를 작성하세요" rows="4"></textarea>
       <button id="submit-btn">작성</button>
+    </section>
+
+    <!-- 검색 및 정렬 -->
+    <section class="controls">
+      <input type="text" id="search-input" placeholder="검색어 입력" />
+      <div class="sort-buttons">
+        <button id="sort-latest-btn">최신순</button>
+        <button id="sort-oldest-btn">오래된 순</button>
+      </div>
     </section>
 
     <!-- 메시지 리스트 -->
     <section id="messages" class="messages">
-      <!-- 메시지가 여기에 동적으로 추가됩니다 -->
+      <!-- 동적으로 추가된 메시지 -->
     </section>
   </div>
   <script src="script.js"></script>
