@@ -1,114 +1,65 @@
-/* 전체 스타일 */
+/* 기본 스타일 */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  #app {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #181a1b;
+    color: #e8e8e8;
+}
+
+#app {
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
-  }
-  
-  /* 헤더 */
-  .header {
-    background-color: #fff;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #007bff;
-  }
-  
-  .nav {
-    margin-top: 0.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  .nav-btn {
-    padding: 0.5rem 1rem;
-    background-color: #f1f1f1;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .nav-btn.active {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  /* 작성 섹션 */
-  .form-section {
-    margin: 1rem 0;
-    background-color: #fff;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  #message-input {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  #submit-btn {
-    display: block;
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* 메시지 리스트 */
-  .messages {
-    margin: 1rem 0;
-  }
-  
-  .message-card {
-    background-color: #fff;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .message-card h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1rem;
-    color: #007bff;
-  }
-  
-  .message-card p {
-    margin: 0.5rem 0;
-  }
+    border-radius: 16px;
+    background-color: #242526;
+    box-sizing: border-box; /* 박스 모델을 정확히 계산 */
+}
 
-  /* 삭제 버튼 */
-.delete-btn {
-    margin-top: 0.5rem;
-    padding: 0.3rem 0.5rem;
-    background-color: #ff4d4d;
+/* 작성 섹션 */
+.form-section {
+    background-color: #404142;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 16px;
+    box-sizing: border-box; /* 요소의 경계를 초과하지 않도록 설정 */
+}
+
+#name-input,
+#message-input {
+    width: 100%; /* 입력 필드가 부모의 너비에 맞도록 */
+    margin-bottom: 1rem;
+    padding: 0.7rem;
+    border: 1px solid #5a5a5a;
+    border-radius: 10px; /* 둥근 모서리 */
+    background-color: #303132;
+    color: #e8e8e8;
+    box-sizing: border-box; /* 경계 포함 크기 계산 */
+}
+
+#message-input {
+    resize: none; /* 텍스트 영역의 크기 조절 비활성화 */
+}
+
+#submit-btn {
+    display: block; /* 버튼이 중앙 정렬되도록 */
+    width: 100%; /* 버튼도 부모의 너비에 맞춤 */
+    padding: 0.7rem;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .delete-btn:hover {
-    background-color: #e63939;
-  }
+    font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 메시지 카드 */
+.message-card {
+    background-color: #404142;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 16px;
+    box-sizing: border-box; /* 경계 포함 크기 계산 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
