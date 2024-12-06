@@ -3,16 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.getElementById("submit-btn");
     const messagesContainer = document.getElementById("messages");
 
-    // 로컬 스토리지에서 메시지 가져오기
+    // 로컬 스토리지에서 메시지 가져오기 (없으면 빈 배열을 반환)
     let messages = JSON.parse(localStorage.getItem("messages")) || [];
 
     // 메시지 렌더링
     function renderMessages(filter = "all") {
-        messagesContainer.innerHTML = "";
+        messagesContainer.innerHTML = "";  // 메시지 컨테이너 비우기
 
-        const filteredMessages =
+        // 필터링된 메시지
+        const filteredMessages = 
             filter === "mine" ? messages.filter((msg) => msg.isMine) : messages;
 
+        // 메시지 카드 추가
         filteredMessages.forEach((msg, index) => {
             const card = document.createElement("div");
             card.classList.add("message-card");
@@ -47,12 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         messages.unshift(newMessage); // 최신 메시지가 위로
         saveMessages(); // 로컬 스토리지에 저장
-        renderMessages();
+        renderMessages(); // 메시지 렌더링
     }
 
     // 로컬 스토리지에 메시지 저장
     function saveMessages() {
-        localStorage.setItem("messages", JSON.stringify(messages));
+        try {
+            localStorage.setItem("messages", JSON.stringify(messages));
+        } catch (error) {
+            console.error("로컬 스토리지 저장에 실패했습니다:", error);
+        }
     }
 
     // 작성 버튼 클릭 이벤트
@@ -73,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.classList.add("active");
 
             const filter = btn.dataset.tab;
-            renderMessages(filter);
+            renderMessages(filter); // 해당 필터로 메시지 렌더링
         });
     });
 
@@ -82,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
         renderMessages("all");
     });
 
-
-    // 초기 렌더링
-    renderMessages();
+    // 페이지 로드 시 메시지 렌더링
+    renderMessages(); // 초기 메시지 렌더링
 });
